@@ -1,0 +1,62 @@
+<div class="reactive-form-component align-center">
+    <form [formGroup]="registerForm">
+        <h1>Register (Reactive Form)</h1>
+        <div class="field-container">
+            <mat-form-field>
+                <mat-label>Full name</mat-label>
+                <input formControlName="fullName" matInput placeholder="Full name" required />
+                <mat-error *ngIf="f['fullName'].invalid && (f['fullName'].dirty || f['fullName'].touched)">Full name is
+                    required</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="field-container">
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input formControlName="email" matInput placeholder="Email" required />
+                <mat-error *ngIf="f['email'].errors?.['required']">Email is required</mat-error>
+                <mat-error *ngIf="f['email'].errors?.['email']">Email invalid</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="field-container">
+            <label>Gender</label>
+            <mat-radio-group formControlName="gender" aria-label="Select an option" required>
+                <mat-radio-button value="Male">Male</mat-radio-button>
+                <mat-radio-button value="Female">Female</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="field-container">
+            <mat-form-field>
+                <mat-label>DOB</mat-label>
+                <input matInput formControlName="dob" [matDatepicker]="picker" name="dob" required>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="field-container">
+            <mat-form-field>
+                <mat-label>State</mat-label>
+                <mat-select formControlName="state" required>
+                    <mat-option value="TS">
+                        Telangana State
+                    </mat-option>
+                    <mat-option value="AP">
+                        Andhrapradesh
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="field-container">
+            <app-multi-select2 formControlName="multi"
+                [placeholder]="'Select'" 
+                [data]="dropdownList" 
+                (select)="onCurrentRow($event)">
+            </app-multi-select2>
+        </div>
+
+        <div class="field-container align-center">
+            <button mat-raised-button color="primary" [disabled]="registerForm.invalid"
+                (click)="submitForm()">Submit</button>
+        </div>
+    </form>
+</div>

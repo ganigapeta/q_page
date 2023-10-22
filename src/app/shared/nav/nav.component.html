@@ -1,0 +1,7 @@
+<div class="nav">
+    <ul>
+        <li *ngFor="let nav of navList">
+            <a [routerLink]="nav.path" routerLinkActive="active" (click)="navigateUrl(nav)">{{ nav.name }}</a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,19 @@
+<button (click)="clickonBtn()">
+    {{ toggleInputShow ? 'Hide' : 'Show' }}
+</button>
+
+<div *toggle="toggleInputShow">
+  <input appRainbow type="text" class="inputStyle" [(ngModel)]="inputVal" />
+  <p>
+    Show input text: {{ inputVal }}
+  </p>
+
+  <ul>
+    <li *ngFor="let attendee of atendees | filterText: inputVal">
+      {{ attendee.name }}
+    </li>
+  </ul>
+
+  <button (click)="changeValue()">Change first prop</button>
+
+</div>

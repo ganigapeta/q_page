@@ -1,0 +1,62 @@
+<div class="tdf-component align-center">
+    <form #registerForm="ngForm" (ngSubmit)="submitForm($event)">
+        <h1>Register (Template driven Form)</h1>
+        <div class="field-container">
+            <mat-form-field appearance="outline">
+                <mat-label>Full name</mat-label>
+                <input matInput placeholder="Full name" name="fullName" [(ngModel)]="user.fullName" #fullName="ngModel"
+                    required />
+                <button *ngIf="user.fullName" matSuffix mat-icon-button aria-label="Clear" (click)="user.fullName=''">
+                    <mat-icon>close</mat-icon>
+                </button>
+                <mat-error *ngIf="(fullName?.touched || registerForm.submitted) && fullName?.errors?.['required']">
+                    Full name is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="field-container">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" [(ngModel)]="user.email" name="email" #email="ngModel" required />
+                <mat-error *ngIf="(email?.touched || registerForm.submitted) && email?.errors?.['required']">
+                    Full name is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="field-container">
+            <label>Gender</label>
+            <mat-radio-group [(ngModel)]="user.gender" [ngModelOptions]="{ standalone: true }"
+                aria-label="Select an option">
+                <mat-radio-button value="Male" name="gender" required>Male</mat-radio-button>
+                <mat-radio-button value="Female" name="gender" required>Female</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="field-container">
+            <mat-form-field appearance="outline">
+                <mat-label>DOB</mat-label>
+                <input matInput [matDatepicker]="picker" name="dob" [(ngModel)]="user.dob" #dob="ngModel" required>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="field-container">
+            <mat-form-field name="state" appearance="outline" required>
+                <mat-label>State</mat-label>
+                <mat-select [(ngModel)]="user.state" [ngModelOptions]="{standalone: true}">
+                    <mat-option value="TS">
+                        Telangana State
+                    </mat-option>
+                    <mat-option value="AP">
+                        Andhrapradesh
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="field-container align-center">
+            <button mat-raised-button color="primary" [disabled]="!registerForm.valid">Submit</button>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,20 @@
+<div class="multiselect-dropdown" (appClickOutside)="closeDropdown()">
+  <div class="dropdown-btn" [class.padding-bottom5]="!selectedItems.length">
+      <div class="selected-item" *ngFor="let item of selectedItems">
+        {{ item.text }} <span class="close" (click)="closeSelected(item)">x</span>
+      </div> 
+      <input 
+        maxlength="0"
+        type="text" 
+        placeholder="{{ selectedItems.length == 0 ? _placeholder : '' }}"
+        (focus)="inputBlur($event)" />
+  </div>
+
+  <div class="dropdown-list" [ngClass]="_settings.position" [hidden]="!_settings.defaultOpen">
+    <ul>
+      <li (click)="selectDropDown(item)" *ngFor="let item of _data | multiSelectFilter: selectedItems">
+        {{ item.text }}
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+.reactive-form-component {
+    form {
+        width: 400px;
+
+        .field-container {
+            width: 100%;
+            mat-form-field {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.align-center {
+    display: flex;
+    justify-content: center;
+}

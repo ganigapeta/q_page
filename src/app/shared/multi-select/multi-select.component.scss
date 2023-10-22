@@ -1,0 +1,107 @@
+$base-color: #00629B;
+$disable-background-color: #eceeef;
+
+.multiselect-dropdown {
+  position: relative;
+  width: 100%;
+  .dropdown-btn {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+    margin-top: 3px;
+    background-color: #fff;;
+    border: 1px solid #adadad;
+    padding: .4rem .4rem 0 .4rem;
+    line-height: 1.52857143;
+    text-align: left;
+    border-radius: 4px;
+    &.padding-bottom5 {
+      padding-bottom: .4rem;
+    }
+    .selected-item {
+      border: 1px solid $base-color;
+      margin-right: 4px;
+      margin-bottom: .4rem;
+      background: $base-color;
+      padding: 0px 5px;
+      color: #fff;
+      border-radius: 2px;
+      float: left;
+      .close {
+        cursor: pointer;
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+    .selected-item:hover {
+      box-shadow: 1px 1px #959595;
+    }
+    .dropdown-down,
+    .dropdown-up {
+      position: absolute;
+      right: .5rem;
+      top: 13px;
+    }
+
+    .dropdown-down {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-top: 7px solid #adadad;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+    }
+    .dropdown-up {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-bottom: 7px solid #adadad;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+    }
+    input {
+      border: none;
+      outline: none;
+    }
+    
+  }
+  .disabled {
+    & > span {
+      background-color: $disable-background-color;
+    }
+  }
+}
+
+.dropdown-list {
+  position: absolute;
+  width: 100%;
+  z-index: 999;
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: 0px 1px 5px #959595;
+  
+  height: 200px;
+  overflow-y: auto;
+  ul {
+    padding: 0px;
+    list-style: none;
+    overflow: auto;
+    margin: 0px;
+  }
+  li {
+    padding: 6px 10px;
+    cursor: pointer;
+    text-align: left;
+    color: #000;
+  }
+
+  &.bottom {
+    top: -207px;
+  }
+
+  &.top {
+    top: 36px;
+  }
+}
