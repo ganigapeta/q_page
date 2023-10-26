@@ -1,6 +1,6 @@
 <div class="user-corner">
-    <button *ngIf="!isUserLogin" (click)="actionHandler('LOGIN')">Login</button>
-    <button *ngIf="isUserLogin" class="profile-icon" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <button *ngIf="!userInfo" (click)="actionHandler('LOGIN')">Login</button>
+    <button *ngIf="userInfo" class="profile-icon" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
        <img class="circle" src="../../../assets/profile.jpeg" width="50px" />
     </button>
     <mat-menu #menu="matMenu">
@@ -9,8 +9,8 @@
             <img class="circle" src="../../../assets/profile.jpeg" width="150px" />
         </div>
         <div>
-            <h4>Kishore</h4>
-            <span>kishore.ganigapeta@gmail.com</span>
+            <h4>{{ userInfo?.username }}</h4>
+            <span>{{ userInfo?.email }}</span>
         </div>
     </div>
     <button (click)="actionHandler('PROFILE')" mat-menu-item>

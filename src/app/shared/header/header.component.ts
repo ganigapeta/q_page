@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,16 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  userInfo: any;
   @Input() headerInfo: any;
 
+  constructor(
+    private authService: AuthService
+  ) { 
+    this.userInfo = this.authService.getUserInfo();
+  }
+
   handleAction(event: any) {
-    console.log('Event>>', event);
     switch(event) { 
       case 'PROFILE': { 
          // do action accordingly 
@@ -20,11 +27,14 @@ export class HeaderComponent {
          break; 
       } 
       case 'LOGOUT': {
-        // do action accordingly
+        this.authService.logout();
+        this.userInfo = this.authService.getUserInfo();
         break;
       }
       case 'LOGIN': {
-        localStorage.setItem('token', 'auhu33');
+        this.authService.login().subscribe(() => {
+          this.userInfo = this.authService.getUserInfo();
+        });
         break;
       }
    } 

@@ -2,5 +2,5 @@
     <div class="logo">
         <img [src]="headerInfo.url" width="200" />
     </div>
-    <app-profile (onAnyAction)="handleAction($event)"></app-profile>
+    <app-profile [userInfo]="userInfo" (onAnyAction)="handleAction($event)"></app-profile>
 </div>

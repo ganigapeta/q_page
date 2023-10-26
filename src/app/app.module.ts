@@ -28,6 +28,7 @@ import { MultiSelect2Component } from './shared/multi-select/multi-select.compon
 import { OverlayDirective } from './shared/directives/overlay.directive';
 import { ListFilterPipe } from './shared/multi-select/list-filter.pipe';
 import { FilterTextPipe } from './shared/pipes/filter-text.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { FilterTextPipe } from './shared/pipes/filter-text.pipe';
     MatDatepickerModule,
     MatIconModule,
     MatMenuModule,
+    HttpClientModule,
     BrowserAnimationsModule
   ],
   providers: [
