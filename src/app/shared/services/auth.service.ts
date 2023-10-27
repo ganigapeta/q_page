@@ -1,21 +1,28 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, tap } from "rxjs";
+import { Route, Router } from "@angular/router";
+import { BehaviorSubject, Observable, tap } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class AuthService {
+    userInfo$ = new BehaviorSubject(null);
     constructor(
-        private http: HttpClient
+        private http: HttpClient,
+        private _router: Router
     ) {}
 
-    setAuth(val: any) {
+    setUserInfoSub() {
+        this.userInfo$.next(this.getUserInfoStorage());
+    }
+
+    setUserInfoStorage(val: any) {
         localStorage.setItem('userInfo', JSON.stringify(val));
     }
 
-    getUserInfo() {
+    getUserInfoStorage() {
         return JSON.parse(localStorage.getItem('userInfo')!);
     }
 
@@ -25,12 +32,15 @@ export class AuthService {
             password: 'kishore'
         }).pipe(
             tap((res: any) => {
-                this.setAuth(res);
+                this.setUserInfoStorage(res);
+                this.setUserInfoSub();
             })
         );
     }
 
     logout() {
         localStorage.removeItem('userInfo');
+        this._router.navigate(['/toggle']);
+        this.setUserInfoSub();
     }
 }

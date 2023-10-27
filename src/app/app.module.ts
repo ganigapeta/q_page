@@ -29,6 +29,9 @@ import { OverlayDirective } from './shared/directives/overlay.directive';
 import { ListFilterPipe } from './shared/multi-select/list-filter.pipe';
 import { FilterTextPipe } from './shared/pipes/filter-text.pipe';
 import { HttpClientModule } from '@angular/common/http';
+import { AccountComponent } from './pages/account/account.component';
+import { UserDetailsComponent } from './pages/account/user-details/user-details.component';
+import { ChangePasswordComponent } from './pages/account/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import { HttpClientModule } from '@angular/common/http';
     OverlayDirective,
     ListFilterPipe,
     MultiSelect2Component,
-    FilterTextPipe
+    FilterTextPipe,
+    AccountComponent,
+    UserDetailsComponent,
+    ChangePasswordComponent
   ],
   imports: [
     CommonModule,

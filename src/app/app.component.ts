@@ -34,14 +34,10 @@ export class AppComponent implements OnInit {
       path: '/reactive-form'
     },
     {
-      id: 'userInfo',
-      name: 'User Details',
-      path: '-'
-    },
-    {
-      id: 'changePassword',
-      name: 'Change password',
-      path: '-'
+      id: 'account',
+      name: 'Account',
+      path: '/account',
+      onAuth: true
     }
   ]
 

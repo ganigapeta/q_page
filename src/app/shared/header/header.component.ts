@@ -13,7 +13,7 @@ export class HeaderComponent {
   constructor(
     private authService: AuthService
   ) { 
-    this.userInfo = this.authService.getUserInfo();
+    this.userInfo = this.authService.getUserInfoStorage();
   }
 
   handleAction(event: any) {
@@ -28,12 +28,12 @@ export class HeaderComponent {
       } 
       case 'LOGOUT': {
         this.authService.logout();
-        this.userInfo = this.authService.getUserInfo();
+        this.userInfo = this.authService.getUserInfoStorage();
         break;
       }
       case 'LOGIN': {
         this.authService.login().subscribe(() => {
-          this.userInfo = this.authService.getUserInfo();
+          this.userInfo = this.authService.getUserInfoStorage();
         });
         break;
       }
