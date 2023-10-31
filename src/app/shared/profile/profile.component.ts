@@ -14,7 +14,6 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     const tokenVal = localStorage.getItem('token');
-   // this.isUserLogin = !!tokenVal;
   }
 
   actionHandler(eventName: string) {

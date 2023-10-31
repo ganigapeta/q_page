@@ -33,12 +33,12 @@ export class AppComponent implements OnInit {
       name: 'Reactive Form',
       path: '/reactive-form'
     },
-    {
-      id: 'account',
-      name: 'Account',
-      path: '/account',
-      onAuth: true
-    }
+    // {
+    //   id: 'account',
+    //   name: 'Account',
+    //   path: '/account',
+    //   onAuth: true
+    // }
   ]
 
   constructor() {

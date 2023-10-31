@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,8 @@ export class HeaderComponent {
   @Input() headerInfo: any;
 
   constructor(
-    private authService: AuthService
+    private authService: AuthService,
+    private _router: Router
   ) { 
     this.userInfo = this.authService.getUserInfoStorage();
   }
@@ -19,7 +21,7 @@ export class HeaderComponent {
   handleAction(event: any) {
     switch(event) { 
       case 'PROFILE': { 
-         // do action accordingly 
+         this._router.navigate(['account', this.userInfo.id, 'details']);
          break; 
       } 
       case 'EDIT': { 

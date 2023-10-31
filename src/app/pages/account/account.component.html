@@ -1,6 +1,6 @@
 <ul>
     <li>
-        <a routerLink="/account/user-details">User info</a>
+        <a [routerLink]="[userInfo.id, 'details']" [queryParams]="{ 'search': 'value' }">User info</a>
     </li>
     <li>
         <a routerLink="/account/change-password">Change password</a>
