@@ -1,0 +1,17 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 1rem;
+}
+
+mat-card {
+    background-color: black;
+    color: #fff;
+}

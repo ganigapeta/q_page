@@ -30,8 +30,7 @@ import { ListFilterPipe } from './shared/multi-select/list-filter.pipe';
 import { FilterTextPipe } from './shared/pipes/filter-text.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { AccountComponent } from './pages/account/account.component';
-import { UserDetailsComponent } from './pages/account/user-details/user-details.component';
-import { ChangePasswordComponent } from './pages/account/change-password/change-password.component';
+
 
 @NgModule({
   declarations: [
@@ -50,8 +49,6 @@ import { ChangePasswordComponent } from './pages/account/change-password/change-
     MultiSelect2Component,
     FilterTextPipe,
     AccountComponent,
-    UserDetailsComponent,
-    ChangePasswordComponent
   ],
   imports: [
     CommonModule,
@@ -68,7 +65,7 @@ import { ChangePasswordComponent } from './pages/account/change-password/change-
     MatIconModule,
     MatMenuModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [
   ],

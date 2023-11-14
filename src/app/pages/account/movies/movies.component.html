@@ -1,0 +1,19 @@
+<div class="actions">
+    <a routerLink="/account/movie/add" mat-fab extended color="primary">
+        <mat-icon>add</mat-icon>
+        Add
+    </a>
+</div>
+<ng-container *ngIf="(movies$ | async) as movies">
+    <div class="grid">
+        <mat-card *ngFor="let movie of movies">
+            <img mat-card-image src="http://localhost:3000/{{movie.src}}"
+                alt="Photo of a Shiba Inu" />
+
+            <mat-card-content>
+                <strong>{{ movie?.movie_title }}</strong>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+</ng-container>

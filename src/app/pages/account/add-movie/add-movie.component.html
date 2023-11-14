@@ -1,0 +1,30 @@
+<div class="reactive-form-component align-center">
+    <form [formGroup]="addForm">
+        <h1>Add Movie</h1>
+        <div class="field-container">
+            <mat-form-field>
+                <mat-label>Movie Title</mat-label>
+                <input formControlName="movie_title" matInput placeholder="Movie Title" required />
+                <mat-error *ngIf="f['movie_title'].invalid && (f['movie_title'].dirty || f['movie_title'].touched)">Movie title is
+                    required</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="field-container">
+            <mat-form-field>
+                <mat-label>Release year</mat-label>
+                <input formControlName="release_year" matInput placeholder="Release year" required />
+                <mat-error *ngIf="f['release_year'].invalid && (f['release_year'].dirty || f['release_year'].touched)">Movie title is
+                    required</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="field-container">
+            <input class="form-control" type="file" 
+            (change)="onChange($event)"> 
+        </div>
+
+        <div class="field-container" style="margin-top: 2rem;">
+            <button mat-raised-button color="primary" [disabled]="addForm.invalid || !file"
+                (click)="submitForm()">Submit</button>
+        </div>
+    </form>
+</div>
